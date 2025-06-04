@@ -8,12 +8,12 @@ import numpy as np
 from collections import defaultdict
 
 # === Paths ===
-BASE_PATH = "F:/Projects/AIModel/demo"
-PAYMENT_CSV = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "Internal-payment", "payment_movement_5000_full_records.xlsx")
-STATUS_CD = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "Internal-payment", "money_mvmnt_status_cd.xlsx")
-STATUS_REASON = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "Internal-payment", "money_mvmnt_status_reason_full.csv")
-SUBSC_OPTN = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "Internal-payment", "money_mvmnt_subsc_optn_cd.xlsx")
-TYPE_CD = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "Internal-payment", "money_mvmnt_type.xlsx")
+BASE_PATH = "/app"
+PAYMENT_CSV = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "internal-payment", "payment_movement_5000_full_records.xlsx")
+STATUS_CD = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "internal-payment", "money_mvmnt_status_cd.xlsx")
+STATUS_REASON = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "internal-payment", "money_mvmnt_status_reason_full.csv")
+SUBSC_OPTN = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "internal-payment", "money_mvmnt_subsc_optn_cd.xlsx")
+TYPE_CD = os.path.join(BASE_PATH, "data", "Supporting_Tables", "payment", "internal-payment", "money_mvmnt_type.xlsx")
 INDEX_PATH = os.path.join(BASE_PATH, "faiss_index", "account_index.faiss")
 META_PATH = os.path.join(BASE_PATH, "faiss_index", "account_metadata.pkl")
 

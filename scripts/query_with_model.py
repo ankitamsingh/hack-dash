@@ -10,7 +10,7 @@ DEBUG = True
 USE_FLAN_CLEANING = True  # Toggle this to turn FLAN rephrasing on/off
 
 # === PATHS ===
-BASE_DIR = "F:/Projects/AIModel/demo"
+BASE_DIR = "/app"
 FAISS_INDEX_PATH = os.path.join(BASE_DIR, "faiss_index", "account_index.faiss")
 FAISS_META_PATH = os.path.join(BASE_DIR, "faiss_index", "account_metadata.pkl")
 

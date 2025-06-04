@@ -1,0 +1,11 @@
+faiss-gpu
+faiss-cpu
+numpy
+pandas
+sentence-transformers
+tqdm
+transformers
+FastAPI
+Flask
+Streamlit
+openpyxl

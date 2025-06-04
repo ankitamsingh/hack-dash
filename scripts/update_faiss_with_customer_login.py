@@ -7,7 +7,7 @@ from collections import defaultdict
 from datetime import datetime
 
 # === Paths ===
-BASE_PATH = "F:/Projects/AIModel/demo"
+BASE_PATH = "/app"
 LOGIN_CSV = os.path.join(BASE_PATH, "data", "Main_Tables", "customer-login", "customer_login.csv")
 INDEX_PATH = os.path.join(BASE_PATH, "faiss_index", "account_index.faiss")
 META_PATH = os.path.join(BASE_PATH, "faiss_index", "account_metadata.pkl")
