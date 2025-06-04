@@ -1,0 +1,11 @@
+ACCNT_OPEN_REASON_CD_ID,ACCNT_OPEN_REASON_DESC,INSRT_TS,INSERT_USER
+0,Others,1-Mar-01,ACCNTDBA
+1,New Account,1-Mar-01,ACCNTDBA
+2,Replaced Card For Lost/Stolen,1-Mar-01,ACCNTDBA
+3,Product Change,1-Mar-01,ACCNTDBA
+4,Acquisition,1-Mar-01,ACCNTDBA
+5,Application,15-May-01,ACCNTDBA
+6,Account reopen,15-May-01,ACCNTDBA
+7,Re-open - bank error,19-Sep-01,BALBERT
+8,Re-open - customer request,19-Sep-01,BALBERT
+9,Others - No Email,6-Aug-14,ARENGASAMY

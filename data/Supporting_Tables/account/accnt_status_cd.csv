@@ -1,0 +1,11 @@
+ACCNT_STATUS_CD_ID,ACCNT_STATUS_DESC,INSRT_TS,INSRT_USER
+0,Valid Operating Account,1-Mar-01,ACCNTDBA
+10,Account Closed User Requested,1-Mar-01,ACCNTDBA
+20,Account Forced Closed by Juniper,1-Mar-01,ACCNTDBA
+30,Account Closed Lost/Stolen,1-Mar-01,ACCNTDBA
+40,Frozen Account,3-Jul-01,ACCNTDBA
+50,Fraudulent application,12-Feb-02,balbert
+70,Acct Forced Closed No longer support BP product,4-Apr-03,ACCNTDBA
+80,Traded,1-Jul-08,ACCNTDBA
+90,Sold,1-Jul-08,ACCNTDBA
+110,Card is Mass Compromised,6-Apr-15,CIFPROC

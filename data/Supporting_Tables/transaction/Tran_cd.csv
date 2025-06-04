@@ -1,0 +1,10 @@
+TRAN_CD,Description
+150,Uncollected Funds/ Insufficient fund
+105,Transaction completed/Funds received from the vendor
+374,Payment not collected for the second return/time
+108,successful payment
+402,Late Payment fee added to customer
+483,Late Payment fee reversed by the bank on the customer account
+747,Payment returned due to insufficient balance or account closed by the customer
+825,transaction  failed 
+408,payment failed
