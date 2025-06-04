@@ -7,8 +7,8 @@ from sentence_transformers import SentenceTransformer
 from datetime import datetime
 
 # === Paths ===
-BASE_PATH = "/app"
-PAYMENT_CSV = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "internal-payment", "payment_movement_5000_full_records.xlsx")
+BASE_PATH = "F:/Projects/AIModel/demo"
+PAYMENT_CSV = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "Internal-payment", "payment_movement_5000_full_records.xlsx")
 STATEMENT_XLSX = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "stmt_dtl_updated_consistent_dates.xlsx")
 ACCT_XLSX = os.path.join(BASE_PATH, "data", "Main_Tables", "payment", "accnt_dtl_mapped_from_stmt_fixed.xlsx")
 INDEX_PATH = os.path.join(BASE_PATH, "faiss_index", "account_index.faiss")

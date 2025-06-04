@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 from datetime import datetime
 
 # === PATHS ===
-BASE_PATH = "/app"
+BASE_PATH = "F:/Projects/AIModel/demo"
 TRANSACTIONS_FILE = os.path.join(BASE_PATH, "data", "Main_Tables", "transaction", "transactions_updated_dates.xlsx")
 TRAN_CAT_FILE = os.path.join(BASE_PATH, "data", "Supporting_Tables", "transaction", "tran_cat_cd.csv")
 TRAN_CD_FILE = os.path.join(BASE_PATH, "data", "Supporting_Tables", "transaction", "Tran_cd.csv")

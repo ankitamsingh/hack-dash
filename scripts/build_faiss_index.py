@@ -7,13 +7,12 @@ from sentence_transformers import SentenceTransformer
 import calendar
 
 # === PATHS ===
-
-BASE_DIR = "/app"
+BASE_DIR = "F:/Projects/AIModel/demo"
 ACCOUNT_MAIN = os.path.join(BASE_DIR, "data", "Main_Tables", "account")
 ACCOUNT_SUPPORT = os.path.join(BASE_DIR, "data", "Supporting_Tables", "account")
 FAISS_OUT_DIR = os.path.join(BASE_DIR, "faiss_index")
 os.makedirs(FAISS_OUT_DIR, exist_ok=True)
-print("path="+ACCOUNT_MAIN)
+
 # === LOAD CSVs ===
 accnt_hdr = pd.read_csv(os.path.join(ACCOUNT_MAIN, "account_hdr.csv"))
 accnt_party = pd.read_csv(os.path.join(ACCOUNT_MAIN, "accnt_party.csv"))
