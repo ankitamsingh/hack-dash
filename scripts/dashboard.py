@@ -36,14 +36,14 @@ st.markdown("""
             border: none;
         }
 
-        .stButton>button:hover {
-            background-color: #38B000;
-        }
-
         #chat-container {
             overflow-y: auto !important;
-            background-color: #F1F5F9;
+            background-color: paleturquoise;
             border: 1px solid #E2E8F0;
+        }
+
+        .st-emotion-cache-vlxhtx {
+            gap: 0.4;
         }
 
         .user-bubble {
@@ -53,6 +53,7 @@ st.markdown("""
         .bot-bubble {
             background-color: #F1F5F9;
         }
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -239,7 +240,7 @@ def render_chart(question):
     return fig
     
 
-col1, col2 = st.columns([2, 1])
+col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown("<h4 style='margin-bottom: 2px;'>📊 Dashboard</h3>", unsafe_allow_html=True)
@@ -250,6 +251,8 @@ with col1:
         fig = render_chart(st.session_state.last_question)
         if fig:
             st.pyplot(fig)
+        else:
+            st.info("No chart available at the moment..")
         
     else:
         st.info("Ask a question about accounts, payments or trends to see visualizations here.")
@@ -258,7 +261,7 @@ with col2:
     st.markdown("<h4 style='margin-bottom: 2px;'>📊 Chatbot</h3>", unsafe_allow_html=True)
     if not st.session_state.messages:
         st.markdown("""
-        <div style="height:330px; padding: 20px; border-radius: 10px; background-color: #f1f5f9; text-align: center; box-shadow: 2px 2px 6px rgba(0,0,0,0.05);">
+        <div style="height:330px; padding: 20px; border-radius: 10px; background-color: paleturquoise; text-align: center; box-shadow: 2px 2px 6px rgba(0,0,0,0.05);">
             <h4 style="color: #444;">🤖 Welcome to your Banking Assistant</h4>
             <p style="color: #666; font-size: 15px;">
                 Ask questions like:<br>
@@ -271,7 +274,8 @@ with col2:
     else:
     # Scrollable chat container
         chat_html = """
-            <div id="chat-container" style="height:350px; overflow-y:scroll; padding:10px; border:1px solid #ccc; border-radius:10px;">
+            <div id="chat-container" style="height:350px; overflow-y:scroll; padding-left: 5px; padding-right: 5px; padding-top:2px; padding-bottom: 10px; background:paleturquoise;
+            border: 1px solid paleturquoise;">
             """
 
         for msg in st.session_state.messages:
@@ -280,7 +284,7 @@ with col2:
             align = "right" if role == "You" else "left"
             chat_html += f"""
             <div style='display:flex; justify-content:{"flex-end" if msg["role"] == "user" else "flex-start"}; margin-bottom:10px;'>
-            <div style='max-width:80%; padding:10px; background-color:{bubble_color}; border-radius:10px; word-wrap:break-word; white-space:pre-wrap; box-shadow:1px 1px 3px rgba(0,0,0,0.1);'>
+            <div style='font-family:cursive; max-width:80%; padding-right:5px; padding-left: 5px; background-color:{bubble_color}; border-radius:10px; word-wrap:break-word; white-space:pre-wrap; box-shadow:1px 1px 3px rgba(0,0,0,0.1);'>
             {msg['content']}
             </div>
             </div>
@@ -293,10 +297,10 @@ with col2:
             chatContainer.scrollTop = chatContainer.scrollHeight;
         </script>
         """
-        st.components.v1.html(chat_html, height=350, scrolling=False)
+        st.components.v1.html(chat_html, height=370, scrolling=False)
 
     # Voice + Text input side by side
-    input_col1, input_col2 = st.columns([1, 7])  # Adjust ratios if needed
+    input_col1, input_col2 = st.columns([1, 11])  # Adjust ratios if needed
 
     with input_col1:
         st.markdown("<div style='margin-top: 0px;'></div>", unsafe_allow_html=True)
@@ -331,65 +335,4 @@ with col2:
             assistant_reply = buffer.getvalue()
             st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
             st.rerun()
-
-
-
-
-    # st.title("💬 Chatbot")
-
-    # Scrollable chat container
-#     chat_html = """
-#     <div style="height:400px; overflow-y:scroll; padding:10px; border:1px solid #ccc; border-radius:10px;">
-#     """
-#     for msg in st.session_state.messages:
-#         role = "You" if msg["role"] == "user" else "Bot"
-#         bubble_color = "#DCF8C6" if role == "You" else "#F1F0F0"
-#         align = "right" if role == "You" else "left"
-#         chat_html += f"""
-#         <div style='display:flex; justify-content:{"flex-end" if msg["role"] == "user" else "flex-start"}; margin-bottom:10px;'>
-#         <div style='max-width:80%; padding:10px; background-color:{bubble_color}; border-radius:10px; word-wrap:break-word; box-shadow:1px 1px 3px rgba(0,0,0,0.1);'>
-#         {msg['content']}
-#         </div>
-#         </div>
-#     """
-
-#     chat_html += "</div>"
-#     st.components.v1.html(chat_html, height=420, scrolling=False)
-
-#     # Voice input
-#     if st.button("🎤 Speak Query"):
-#         record_and_transcribe()
-
-#     spoken_query = st.session_state.spoken_query
-#     if spoken_query:
-#         user_prompt = st.text_input("📝 Your query:", value=spoken_query, key="editable_prompt")
-#         send_clicked = user_prompt is not None
-#     else:
-#         user_prompt = st.chat_input("Ask me anything about accounts, trends, or analytics...")
-#         send_clicked = user_prompt is not None
-
-#     # Handling user query
-#     # Add this to your message handling logic
-# if send_clicked and user_prompt:
-#     st.session_state.messages.append({"role": "user", "content": user_prompt})
-
-#     # Store last question for chart rendering
-#     st.session_state.last_question = user_prompt
-
-#     with st.spinner("Thinking..."):
-#         buffer = io.StringIO()
-#         sys_stdout_backup = sys.stdout
-#         sys.stdout = buffer
-#         try:
-#             query_account_qa(user_prompt)
-#         except Exception as e:
-#             st.error(f"❌ Error: {e}")
-#         finally:
-#             sys.stdout = sys_stdout_backup
-
-#         assistant_reply = buffer.getvalue()
-#         st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
-#         st.rerun()
-
-
 
