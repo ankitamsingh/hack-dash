@@ -67,11 +67,9 @@ if "spoken_query" not in st.session_state:
 def record_and_transcribe():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        st.info("Listening... Please speak clearly into your mic.")
         audio = recognizer.listen(source, timeout=10)
     try:
         text = recognizer.recognize_google(audio)
-        st.success("Transcription complete!")
         st.session_state.spoken_query = text
     except sr.UnknownValueError:
         st.error("Sorry, could not understand the audio.")
@@ -266,7 +264,7 @@ with col2:
             <p style="color: #666; font-size: 15px;">
                 Ask questions like:<br>
                 <em>"What are the top reasons for account closures last quarter?"</em><br>
-                <em>"Show me monthly login trends this year"</em><br>
+                <em>"What is the trend of login failures over 6 months?"</em><br>
             </p>
             <p style="color: #888; font-size: 14px;">You can also use the <strong>🎤</strong> button to ask your question via voice.</p>
         </div>
@@ -310,10 +308,13 @@ with col2:
         with input_col2:
             st.markdown("<div style='margin-top: 0px;'></div>", unsafe_allow_html=True)
             if st.session_state.spoken_query:
-                user_prompt = st.text_input("📝", value=st.session_state.spoken_query, key="editable_prompt")
+                # user_prompt = st.chat_input("📝", value=st.session_state.spoken_query, key="editable_prompt")
+                user_prompt = st.session_state.spoken_query
+                st.session_state.spoken_query = ""
             else:
                 user_prompt = st.chat_input("Ask me anything about accounts, trends, or analytics...")
-
+            # if user_prompt is not None:
+            #     user_prompt = re.sub(r"[?.,'\"']", "", user_prompt).strip().lower()
             send_clicked = user_prompt is not None and user_prompt != ""
 
 
